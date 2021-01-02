@@ -3,5 +3,22 @@ export type BlockCreatedEventPayload = {
 };
 
 export class BlockCreatedEvent {
-  constructor(private readonly payload: BlockCreatedEventPayload) {}
+  private readonly VERSION = 1;
+
+  constructor(
+    private readonly id: string,
+    private readonly payload: BlockCreatedEventPayload,
+  ) {}
+
+  getId(): string {
+    return this.id;
+  }
+
+  getVersion(): number {
+    return this.VERSION;
+  }
+
+  getPayload(): BlockCreatedEventPayload {
+    return this.payload;
+  }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller } from '@nestjs/common';
+import { Body, Controller, Get } from '@nestjs/common';
 import { Post } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { CreateBlockCommand } from '../application';
@@ -8,7 +8,7 @@ type CreateBlockDto = {
   html: string;
 };
 
-@Controller('block')
+@Controller('blocks')
 export class BlockController {
   constructor(private readonly commandBus: CommandBus) {}
 

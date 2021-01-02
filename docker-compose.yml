@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  nestjs-cqrs-es:
+    container_name: nestjs-cqrs-es
+    image: nestjs-cqrs-es:dev
+    build:
+      context: .
+      target: development
+      dockerfile: docker/Dockerfile
+    command: npm run start:dev
+    ports:
+      - '3131:3131'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - eventstore
+  eventstore:
+    container_name: eventstore
+    image: eventstore/eventstore:release-5.0.2
+    ports:
+      - '1113:1113'
+      - '2113:2113'
+    healthcheck:
+      disable: true
+    volumes:
+      - ./docker/eventstore.conf:/etc/eventstore/eventstore.conf
