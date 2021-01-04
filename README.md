@@ -1,6 +1,7 @@
 
 # NestJS CQRS ES repository
 This is a go to repository for a first chapter of NestJS ES articles.
+You can read it [here](https://mateusz-jasiuk.medium.com/nestjs-eventsourcing-journey-chapter-one-command-fundamentals-932c5fcaf8c8).
 
 ## Installation
 
